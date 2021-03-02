@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import ru.albeiz.models.Recipe
-import ru.albeiz.requests.responses.RecipeSearchResponse
 
 class RecipeListActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
