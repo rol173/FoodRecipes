@@ -5,6 +5,7 @@ import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import ru.albeiz.util.CONNECTION_TIMEOUT
 
 abstract class BaseActivity: AppCompatActivity() {
 
