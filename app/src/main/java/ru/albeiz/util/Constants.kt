@@ -1,7 +1,7 @@
 package ru.albeiz.util
 
-const val BASE_URL = "https://resipesapi.herokuapp.com"
-const val API_KEY = ""
+const val BASE_URL = "https://recipesapi.herokuapp.com"
+//const val API_KEY = ""
 
 const val CONNECTION_TIMEOUT = 10
 const val READ_TIMEOUT = 2

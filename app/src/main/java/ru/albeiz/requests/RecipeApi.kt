@@ -11,7 +11,6 @@ interface RecipeApi {
     //SEARCH
     @GET("api/search")
     fun searchRecipe(
-        @Query("key") key: String,
         @Query("q") query: String,
         @Query("page") page: String
     ): Call<RecipeSearchResponse>
@@ -19,7 +18,6 @@ interface RecipeApi {
     //GET RECIPE REQUEST
     @GET("api/get")
     fun getRecipe(
-        @Query("key") key: String,
         @Query("rId") recipeId: String
     ): Call<RecipeResponse>
 }
