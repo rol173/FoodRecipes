@@ -4,32 +4,42 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_recipe_list.*
 import retrofit2.Call
 import ru.albeiz.requests.ServiceGenerator
 import ru.albeiz.requests.responses.RecipeSearchResponse
 import retrofit2.Callback
 import retrofit2.Response
+import ru.albeiz.models.Recipe
 import ru.albeiz.requests.responses.RecipeResponse
+import ru.albeiz.viewmodels.RecipeListViewmodel
 
 private const val TAG = "RecipeListActivity"
 
 class RecipeListActivity : BaseActivity() {
 
+    private lateinit var mRecipeListViewModel: RecipeListViewmodel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_list)
 
-        test.setOnClickListener {
-            if (mProgressBar.visibility == View.VISIBLE) {
-                showProgressBar(false)
-            } else {
-                showProgressBar(true)
-            }
-            testRetrofitRequest()
-        }
+        mRecipeListViewModel = ViewModelProvider(this).get(RecipeListViewmodel::class.java)
+        subscribeObservers()
+
     }
+
+    private fun subscribeObservers() {
+        mRecipeListViewModel.getRecipes().observe(this,
+            Observer<List<Recipe>> {
+
+            }
+        )
+    }
+
+
 
     private fun testRetrofitRequest() {
         val recipeApi = ServiceGenerator.getRecipeApi()
